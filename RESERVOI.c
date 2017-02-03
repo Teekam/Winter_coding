@@ -59,7 +59,7 @@ int main(){
 			if(flag==1) break;
 
 		}
-
+		//printf("flag = %d\n",flag );
 		// verical checking for every column
 
 		for(j=0;j<m;j++){
@@ -67,14 +67,14 @@ int main(){
 			while(array[i][j]!='B' && i<n){
 				prev = array[i][j];
 				curr = array[i+1][j];
-				if((prev=='A' && curr=='W') || (prev=='W' && curr=='A')){
+				if (prev=='W' && curr=='A'){
 					flag=1;
 					break;
 				}
 				else 
 					i++;
 			}
-					
+			//if(i==n) flag=1;			
 		
 			for(;i<n;i++){
 				if(array[i][j]!='B'){
