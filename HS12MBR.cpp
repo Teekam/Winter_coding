@@ -3,10 +3,11 @@ using namespace std;
 int main(){
 	int t,n,x,y,r,x1,y1,i;
 	char ch;
-	vector< pair<int,int> > a;             // vector of pairs
+	vector <int> arr1,arr2;
 	scanf("%d",&t);
 	while(t--){
-		a.clear();                        //empty the vector of pairs
+		arr1.clear();
+		arr2.clear();                       //empty the vector of pairs
 		scanf("%d",&n);
 		for(i=0;i<n;i++){
 			
@@ -20,30 +21,30 @@ int main(){
 
 			if(ch == 'p'){
 				scanf("%d %d",&x,&y);
-				a.push_back(make_pair(x,y));
+				arr1.push_back(x);
+				arr2.push_back(y);
 			}
 			else if (ch == 'c'){
 				scanf("%d %d %d",&x,&y,&r);
-				a.push_back(make_pair(x-r,y-r));
-				a.push_back(make_pair(x+r,y+r));
+				arr1.push_back(x-r);
+				arr2.push_back(y-r);
+				arr1.push_back(x+r);
+				arr2.push_back(y+r);
 			}
 			else if(ch == 'l'){
 				scanf("%d %d %d %d",&x,&y,&x1,&y1);
 				
-				if((y1-y)*(x1-x)>=0){
-					a.push_back(make_pair(x1,y1));
-					a.push_back(make_pair(x,y));
-				}
-				else{
-					a.push_back(make_pair(x,y1));
-					a.push_back(make_pair(x1,y));
-					
-				}
+				arr1.push_back(x);
+				arr2.push_back(y);
+				arr1.push_back(x1);
+				arr2.push_back(y1);
 			}
 			
 		}
-		sort(a.begin(),a.end());
-		printf("%d %d %d %d\n",a.front().first,a.front().second,a.back().first,a.back().second);
+		sort(arr1.begin(),arr1.end());
+		sort(arr2.begin(),arr2.end());
+
+		printf("%d %d %d %d\n",arr1.front(),arr2.front(),arr1.back(),arr2.back());
 
 	}
 
